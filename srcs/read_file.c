@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vconesa- <vconesa-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 11:36:14 by xvislock          #+#    #+#             */
-/*   Updated: 2024/03/20 20:04:09 by vconesa-         ###   ########.fr       */
+/*   Updated: 2024/04/08 09:18:17 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	get_file_descriptor(char *filename)
 {
+	/*
+		Open file and return unique file identifier.
+		Returns -1 if file not found
+	*/
 	int	fd;
 
 	fd = open(filename, O_RDONLY);
@@ -27,30 +31,37 @@ int	get_file_descriptor(char *filename)
 
 char	*get_file_buffer(int fd)
 {
+	/*
+		Read file and return contents of the file.
+		Return NULL if can't allocate memory or
+		if filesize is larger than allocated memory.
+	*/
 	char	*buff;
 	int		buff_size;
 	int		read_size;
 	int		i;
 
+	// allocate memory to the buffer
 	buff_size = 300000;
 	buff = (char *)malloc(buff_size * sizeof (char));
+
+	// if buff is empty, return NULL
 	if (buff == NULL)
-	{
-		write(2, "Can't allocate memory.", 20);
 		return (NULL);
-	}
+
+	// initialise buffer
 	i = 0;
 	while (i < buff_size)
 	{
 		buff[i] = '\0';
 		i++;
 	}
+
+	// read file and copy contents to the buffer
 	read_size = read(fd, buff, buff_size);
 	if (read_size == buff_size)
-	{
-		write(2, "Maximum map size exceeded.", 18);
 		return (NULL);
-	}
+
 	return (buff);
 }
 
@@ -59,6 +70,7 @@ char	*get_first_line(char *buff, t_map *map)
 	char	row[1024];
 	int		i;
 
+	// write the first line to the row
 	i = 0;
 	while (*buff && *buff != '\n')
 	{
@@ -66,11 +78,16 @@ char	*get_first_line(char *buff, t_map *map)
 		buff++;
 	}
 	row[i] = '\0';
+
+	// last three chars describe the map symbols
 	map->info.full = row[i - 1];
 	map->info.obst = row[i - 2];
 	map->info.empt = row[i - 3];
 	row[i - 3] = '\0';
+	// the beginning of the row determines the map size
 	map->info.x = ft_atoi(row);
+	buff++;
+	// return pointer to the next row of the buffer
 	return (buff);
 }
 
@@ -86,7 +103,6 @@ int	read_file(char *filename, t_map *map)
 	buff = get_file_buffer(fd);
 	buff_start = buff;
 	buff = get_first_line(buff, map);
-	buff++;
 	if (!is_valid_map(buff, map))
 	{
 		ft_putstr(MAP_ERROR);
@@ -94,6 +110,7 @@ int	read_file(char *filename, t_map *map)
 		return (0);
 	}
 	map->info.y = ft_strlen(buff);
+	//
 	create_map(buff, map);
 	free(buff_start);
 	loop_matrix(map);
