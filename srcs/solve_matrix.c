@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   solve_matrix.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vconesa- <vconesa-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:16:06 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/03/20 21:50:50 by vconesa-         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:36:25 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_map.h"
 
-void	allocate_counts(t_map *map)
+void	init_counts(t_map *map)
 {
 	int	i;
 
@@ -35,14 +35,15 @@ void	calculate_counts(t_map *map, int i, int j)
 	int	**m_counts;
 
 	m_counts = map->counts;
-	if (map->input[i][j] == 'o')
-	{
+	// if obstacle on the position, counts = 0
+	if (map->input[i][j] == map->info.full)
 		current_count = 0;
-	}
+	// if position is far right column or lowest row, counts = 1;
 	else if (j == (map->info.y - 1))
 		current_count = 1;
 	else if (i == (map->info.x - 1))
 		current_count = 1;
+	// calculate counts
 	else
 	{
 		current_count = 1 + min_value(
@@ -57,13 +58,13 @@ void	calculate_counts(t_map *map, int i, int j)
 	}
 }
 
-void	loop_matrix(t_map *map)
+void	solve_matrix(t_map *map)
 {
 	int	i;
 	int	j;
 
 	map->info.max_sq = 0;
-	allocate_counts(map);
+	init_counts(map);
 	i = map->info.x - 1;
 	while (i >= 0)
 	{

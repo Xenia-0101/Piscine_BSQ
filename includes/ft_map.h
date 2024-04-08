@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:05:57 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/04/08 09:08:56 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:31:15 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	*get_file_buffer(int fd);
 
 typedef struct s_map_info
 {
-	int		x;
-	int		y;
+	int		x; // row count
+	int		y; // col count
 	char	empt;
 	char	obst;
 	char	full;
@@ -50,14 +50,13 @@ typedef struct s_map_str
 }	t_map;
 
 int		read_file(char *filename, t_map *map);
-void	loop_matrix(t_map *map);
+void	solve_matrix(t_map *map);
 void	print_solution(t_map *map);
 char	*get_first_line(char *buff, t_map *map);
 int		is_valid_map(char *buff, t_map *map);
 int		create_map(char *buff, t_map *map);
-void	allocate_counts(t_map *map);
+void	init_counts(t_map *map);
 void	calculate_counts(t_map *map, int i, int j);
-int		correct_char(char *buff, t_map *map);
 void	init_input(t_map *map);
 void	fill_rows(int i, int pos, t_map *map, char *row);
 void	clean_input(t_map *map);

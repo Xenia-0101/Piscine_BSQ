@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 11:36:14 by xvislock          #+#    #+#             */
-/*   Updated: 2024/04/08 09:18:17 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:31:15 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ int	get_file_descriptor(char *filename)
 
 char	*get_file_buffer(int fd)
 {
-	/*
-		Read file and return contents of the file.
-		Return NULL if can't allocate memory or
-		if filesize is larger than allocated memory.
-	*/
 	char	*buff;
 	int		buff_size;
 	int		read_size;
@@ -44,11 +39,9 @@ char	*get_file_buffer(int fd)
 	// allocate memory to the buffer
 	buff_size = 300000;
 	buff = (char *)malloc(buff_size * sizeof (char));
-
 	// if buff is empty, return NULL
 	if (buff == NULL)
 		return (NULL);
-
 	// initialise buffer
 	i = 0;
 	while (i < buff_size)
@@ -56,12 +49,11 @@ char	*get_file_buffer(int fd)
 		buff[i] = '\0';
 		i++;
 	}
-
 	// read file and copy contents to the buffer
 	read_size = read(fd, buff, buff_size);
 	if (read_size == buff_size)
 		return (NULL);
-
+	// return pointer to the buffer
 	return (buff);
 }
 
@@ -110,9 +102,8 @@ int	read_file(char *filename, t_map *map)
 		return (0);
 	}
 	map->info.y = ft_strlen(buff);
-	//
 	create_map(buff, map);
 	free(buff_start);
-	loop_matrix(map);
+	solve_matrix(map);
 	return (1);
 }
