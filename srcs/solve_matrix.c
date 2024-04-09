@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:16:06 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/04/08 12:36:25 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/09 08:36:08 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	calculate_counts(t_map *map, int i, int j)
 
 	m_counts = map->counts;
 	// if obstacle on the position, counts = 0
-	if (map->input[i][j] == map->info.full)
+	if (map->input[i][j] == map->info.obst)
 		current_count = 0;
 	// if position is far right column or lowest row, counts = 1;
 	else if (j == (map->info.y - 1))
