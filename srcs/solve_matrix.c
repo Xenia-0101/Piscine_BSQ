@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:16:06 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/04/09 08:36:08 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:00:40 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,27 +76,4 @@ void	solve_matrix(t_map *map)
 		}
 		i--;
 	}
-}
-
-void	print_solution(t_map *map)
-{
-	int	x;
-	int	y;
-	int	max_x;
-	int	max_y;
-	int	t_y;
-
-	x = map->info.coors[0];
-	y = map->info.coors[1];
-	max_x = map->info.max_sq + x;
-	max_y = map->info.max_sq + y;
-	t_y = y;
-	while (x < max_x)
-	{
-		while (y < max_y)
-			map->input[x][y++] = map->info.full;
-		x++;
-		y = t_y;
-	}
-	print_matrix(map->input, map);
 }

@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:05:57 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/04/08 12:31:15 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:03:31 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		is_digit(char c);
 char	ft_strlen(char *str);
 int		min_value(int a, int b, int c);
 void	ft_putstr(char *str);
-void	print_matrix_int(int **m);
 char	*ft_strdup(char *src);
 int		get_file_descriptor(char *filename);
 char	*get_file_buffer(int fd);
@@ -58,7 +57,6 @@ int		create_map(char *buff, t_map *map);
 void	init_counts(t_map *map);
 void	calculate_counts(t_map *map, int i, int j);
 void	init_input(t_map *map);
-void	fill_rows(int i, int pos, t_map *map, char *row);
 void	clean_input(t_map *map);
 void	clean_counts(t_map *map);
 void	print_matrix(char **m, t_map *map);
