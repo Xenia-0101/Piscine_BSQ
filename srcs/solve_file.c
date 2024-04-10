@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 11:36:14 by xvislock          #+#    #+#             */
-/*   Updated: 2024/04/10 19:26:32 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/10 21:21:03 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*get_file_buffer(int fd)
 	int		i;
 
 	// allocate memory to the buffer
-	buff_size = 300000;
+	buff_size = 3000000;
 	buff = (char *)malloc(buff_size * sizeof (char));
 	// if buff is empty, return NULL
 	if (buff == NULL)
@@ -93,6 +93,12 @@ int	solve_file(char *filename, t_map *map)
 	if (fd == -1)
 		return (0);
 	buff = get_file_buffer(fd);
+	if (buff == NULL)
+	{
+		ft_putstr(MAP_ERROR);
+		free(buff);
+		return (0);
+	}
 	buff_start = buff;
 	buff = get_first_line(buff, map);
 	if (!is_valid_map(buff, map))
