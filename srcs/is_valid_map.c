@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validator.c                                        :+:      :+:    :+:   */
+/*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:41:04 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/04/08 09:15:47 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:27:53 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_valid_map(char *buff, t_map *map)
 	int		row_len;
 
 	// get the length of the first row
-	row_len = ft_strlen(buff);
+	row_len = ft_strlen(buff, '\n');
 	i = 0;
 	j = 0;
 	while (i < map->info.x)

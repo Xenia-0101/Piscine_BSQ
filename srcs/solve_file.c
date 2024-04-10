@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   solve_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 11:36:14 by xvislock          #+#    #+#             */
-/*   Updated: 2024/04/08 12:31:15 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:26:32 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*get_first_line(char *buff, t_map *map)
 	return (buff);
 }
 
-int	read_file(char *filename, t_map *map)
+int	solve_file(char *filename, t_map *map)
 {
 	int		fd;
 	char	*buff;
@@ -101,7 +101,7 @@ int	read_file(char *filename, t_map *map)
 		free(buff_start);
 		return (0);
 	}
-	map->info.y = ft_strlen(buff);
+	map->info.y = ft_strlen(buff, '\n');
 	create_map(buff, map);
 	free(buff_start);
 	solve_matrix(map);

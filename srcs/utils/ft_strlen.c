@@ -6,18 +6,18 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:47:10 by xvislock          #+#    #+#             */
-/*   Updated: 2024/04/10 17:06:18 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:29:23 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_map.h"
 
-char	ft_strlen(char *str)
+char	ft_strlen(char *str, char stop)
 {
 	int	l;
 
 	l = 0;
-	while (str[l] != '\n')
+	while (str[l] != stop)
 		l++;
 	return (l);
 }

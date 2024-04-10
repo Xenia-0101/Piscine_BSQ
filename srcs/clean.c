@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vconesa- <vconesa-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:00:39 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/03/20 19:04:53 by vconesa-         ###   ########.fr       */
+/*   Updated: 2024/04/10 18:07:59 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,10 @@ void	clean_counts(t_map *map)
 		i++;
 	}
 	free(map->counts);
+}
+
+void clean(t_map *map)
+{
+	clean_input(map);
+	clean_counts(map);
 }
