@@ -6,7 +6,7 @@
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:05:57 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/04/10 19:35:39 by xvislock         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:43:23 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-char	*ft_strcpy(char *dest, char *src);
 int		ft_atoi(char *str);
-int		is_digit(char c);
-char	ft_strlen(char *str, char stop);
-int		min_value(int a, int b, int c);
 void	ft_putstr(char *str);
+char	*ft_strcpy(char *dest, char *src);
 char	*ft_strdup(char *src);
-int		get_file_descriptor(char *filename);
-char	*get_file_buffer(int fd);
+char	ft_strlen(char *str, char stop);
+int		is_digit(char c);
+int		min_value(int a, int b, int c);
 char	*get_filename(void);
 # define MAP_ERROR "map error\n"
 # define MSG_TO_USER "Please enter the path of the file:\n"
@@ -49,15 +47,10 @@ typedef struct s_map_str
 	t_info	info;
 }	t_map;
 
+void	clean(t_map *map);
+int		create_map(char *buff, t_map *map);
+int		is_valid_map(char *buff, t_map *map);
+void	print_solution(t_map *map);
 int		solve_file(char *filename, t_map *map);
 void	solve_matrix(t_map *map);
-void	print_solution(t_map *map);
-char	*get_first_line(char *buff, t_map *map);
-int		is_valid_map(char *buff, t_map *map);
-int		create_map(char *buff, t_map *map);
-void	init_counts(t_map *map);
-void	calculate_counts(t_map *map, int i, int j);
-void	init_input(t_map *map);
-void	print_matrix(char **m, t_map *map);
-void	clean(t_map *map);
 #endif
