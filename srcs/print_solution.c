@@ -26,19 +26,19 @@ void	print_solution(t_map *map)
 	int	y;
 	int	max_x;
 	int	max_y;
-	int	t_y;
 
+	// get the coordinates of the upper left corner
 	x = map->info.coors[0];
 	y = map->info.coors[1];
+	// calculate the coordinates of the lower right corner
 	max_x = map->info.max_sq + x;
 	max_y = map->info.max_sq + y;
-	t_y = y;
-	while (x < max_x)
+	// while x, y are within bounds, change char to full
+	while (x++ < max_x)
 	{
 		while (y < max_y)
 			map->input[x][y++] = map->info.full;
-		x++;
-		y = t_y;
+		y = map->info.coors[1];
 	}
 	print_matrix(map->input, map);
 }
