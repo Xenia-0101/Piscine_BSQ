@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vconesa- <vconesa-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 09:00:50 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/03/20 18:44:06 by vconesa-         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:36:00 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_map.h"
+#include "../../includes/ft_map.h"
 
 int	ft_atoi(char *str)
 {

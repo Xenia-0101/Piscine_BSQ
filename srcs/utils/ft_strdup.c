@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vconesa- <vconesa-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:14:32 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/03/20 18:25:25 by vconesa-         ###   ########.fr       */
+/*   Updated: 2024/04/10 17:06:14 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_map.h"
+#include "../../includes/ft_map.h"
 
 char	*ft_strdup(char *src)
 {

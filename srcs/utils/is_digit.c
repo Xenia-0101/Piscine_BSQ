@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   is_digit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 18:47:10 by xvislock          #+#    #+#             */
-/*   Updated: 2024/03/20 09:42:13 by xvislock         ###   ########.fr       */
+/*   Created: 2024/03/19 08:53:16 by vconesa-          #+#    #+#             */
+/*   Updated: 2024/04/10 17:06:22 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_map.h"
+#include "../../includes/ft_map.h"
 
-char	ft_strlen(char *str)
+int	is_digit(char c)
 {
-	int	l;
-
-	l = 0;
-	while (str[l] != '\n')
-		l++;
-	return (l);
+	return (c >= '0' && c <= '9');
 }

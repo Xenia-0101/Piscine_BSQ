@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vconesa- <vconesa-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xvislock <xvislock@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:13:16 by vconesa-          #+#    #+#             */
-/*   Updated: 2024/03/20 16:20:26 by vconesa-         ###   ########.fr       */
+/*   Updated: 2024/04/10 17:06:05 by xvislock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_map.h"
+#include "../../includes/ft_map.h"
 
 void	ft_putstr(char *str)
 {
