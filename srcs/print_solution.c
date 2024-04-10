@@ -45,10 +45,11 @@ void	print_solution(t_map *map)
 	max_x = map->info.max_sq + x;
 	max_y = map->info.max_sq + y;
 	// while x, y are within bounds, change char to full
-	while (x++ < max_x)
+	while (x < max_x)
 	{
 		while (y < max_y)
 			map->input[x][y++] = map->info.full;
+		x++;
 		y = map->info.coors[1];
 	}
 	print_matrix(map->input, map);
